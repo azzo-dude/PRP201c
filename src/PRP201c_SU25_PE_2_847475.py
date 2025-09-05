@@ -1,3 +1,23 @@
+import csv
+import json
+import sqlite3
+import numpy as np
+import matplotlib.pyplot as plt
+
+def read_file_json(filepath: str):
+    with open(filepath, "r") as file:
+        return json.load(file)
+
+'Q1: task1'
+class GoldPrice:
+    def __init__(self, date: str, buy: int, sell: int):
+        self.date = date
+        self.buy = buy
+        self.sell = sell
+
+    def __str__(self):
+        return f'{self.date:<15}{self.buy:<15,}{self.sell:,}'
+
 'Q1: task2'
 def display_gold_table():
     print("Date                Buy           Sell\n" + "-" * 36)
