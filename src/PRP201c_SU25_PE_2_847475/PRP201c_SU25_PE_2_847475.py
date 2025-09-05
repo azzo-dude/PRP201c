@@ -36,7 +36,7 @@ def save_lowest_buy_to_sqlite():
     cursor.execute("INSERT INTO gold_price(date, buy, sell) VALUES (?, ? , ? )", (lowest_buy.date, lowest_buy.buy, lowest_buy.sell))
     conn.commit()
     conn.close()
-
+    
 'Q2: task2'
 def read_gold_price_from_db():
     conn = sqlite3.connect(file_db)
