@@ -1,7 +1,6 @@
 import csv
 import json
 import sqlite3
-import numpy as np
 import matplotlib.pyplot as plt
 
 def read_file_json(filepath: str):
@@ -108,7 +107,6 @@ if __name__ == "__main__":
     print()
     save_lowest_buy_to_sqlite()
     read_gold_price_from_db()
-
     print()
     export_fluctuation_to_csv()
     highest_and_lowest_fluctuation_from_csv()
