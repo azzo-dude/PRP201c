@@ -92,6 +92,8 @@ def plot_sell_trend():
     plt.grid()
     plt.legend()
     plt.tight_layout()
+    
+'Q5: task2'
     plt.savefig('sell_buy_trend.png')
     plt.show()
 
