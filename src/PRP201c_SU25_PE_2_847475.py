@@ -75,7 +75,7 @@ def highest_and_lowest_fluctuation_from_csv():
     print(f"Highest Difference (Buy - Sell): {highest_fluctuation} on {highest_fluctuation_index['date']}")
     print(f"Lowest Difference (Buy - Sell): {lowest_fluctuation} on {lowest_fluctuation_index['date']}")
 
-'Q5: task1'
+'Q5: task1, 2'
 def plot_sell_trend():
     date = [item.date for item in gold_price]
     buy = [item.buy for item in gold_price]
@@ -91,6 +91,7 @@ def plot_sell_trend():
     plt.grid()
     plt.legend()
     plt.tight_layout()
+    
     plt.savefig('sell_buy_trend.png')
     plt.show()
 
