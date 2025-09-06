@@ -64,7 +64,7 @@ def save_usd_fluctuation_report():
     rate1, rate2 = max(zip(exchange_rate, exchange_rate[1:]), key=lambda x: abs(x[1].USD - x[0].USD))
     fluctuation = abs(rate1.USD - rate2.USD)
 
-    with open('report.csv', 'w', newline='') as csvfile:
+    with open(file_csv, 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=['Date', 'USD Fluctuation'])
         writer.writeheader()
         writer.writerow({'Date': rate2.date, 'USD Fluctuation': fluctuation})
@@ -72,6 +72,7 @@ def save_usd_fluctuation_report():
 
 if __name__ == '__main__':
     file_json = 'exchange_rates.json'
+    file_csv = 'report.csv'
     exchange_rate = [ExchangeRate(**item) for item in read_file_json(file_json)]
 
     display_exchange_table()
@@ -80,4 +81,5 @@ if __name__ == '__main__':
     print()
     calculate_usd_change_percent()
     plot_usd_trend()
+
     save_usd_fluctuation_report()
