@@ -7,7 +7,7 @@ def read_file_json(filepath: str):
     with open(filepath, "r") as file:
         return json.load(file)
 
-'Q1: task1'
+'Q1'
 class GoldPrice:
     def __init__(self, date: str, buy: int, sell: int):
         self.date = date
@@ -16,14 +16,13 @@ class GoldPrice:
 
     def __str__(self):
         return f'{self.date:<15}{self.buy:<15,}{self.sell:,}'
-
-'Q1: task2'
+        
 def display_gold_table():
     print("Date                Buy           Sell\n" + "-" * 36)
     for item in gold_price:
         print(item)
 
-'Q2: task1'
+'Q2'
 def save_lowest_buy_to_sqlite():
     conn = sqlite3.connect(file_db)
     cursor = conn.cursor()
@@ -37,7 +36,6 @@ def save_lowest_buy_to_sqlite():
     conn.commit()
     conn.close()
     
-'Q2: task2'
 def read_gold_price_from_db():
     conn = sqlite3.connect(file_db)
     cursor = conn.cursor()
@@ -45,12 +43,11 @@ def read_gold_price_from_db():
     rows = cursor.fetchone()
     print(rows)
 
-'Q3: task1'
+'Q3'
 def calculate_fluctuation():
      for item in gold_price:
          item.fluctuation = item.sell - item.buy
 
-'Q3: task2'
 def export_fluctuation_to_csv():
     calculate_fluctuation()
     with open(file_csv, 'w', newline='') as csvfile:
@@ -58,12 +55,11 @@ def export_fluctuation_to_csv():
         writer.writeheader()
         writer.writerows(vars(item) for item in gold_price)
 
-'Q4: task1'
+'Q4'
 def read_file_csv():
     with open(file_csv, newline='') as csvfile:
         return list(csv.DictReader(csvfile))
 
-'Q4: task2'
 def highest_and_lowest_fluctuation_from_csv():
     data = read_file_csv()
     lowest_fluctuation_index = min(data, key=lambda x: int(x['buy']) - int(x['sell']))
@@ -75,7 +71,7 @@ def highest_and_lowest_fluctuation_from_csv():
     print(f"Highest Difference (Buy - Sell): {highest_fluctuation} on {highest_fluctuation_index['date']}")
     print(f"Lowest Difference (Buy - Sell): {lowest_fluctuation} on {lowest_fluctuation_index['date']}")
 
-'Q5: task1, 2'
+'Q5'
 def plot_sell_trend():
     date = [item.date for item in gold_price]
     buy = [item.buy for item in gold_price]
